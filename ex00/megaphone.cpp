@@ -15,4 +15,4 @@ int main(int argc, char** argv) {
     else
         std::cout << output << std::endl;
     return 0;
-}
+};
