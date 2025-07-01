@@ -22,7 +22,7 @@ public:
 private:
     std::string firstName;
     std::string lastName;
-    std::string nickName;
+    std::string nickname;
     std::string phoneNumber;
     std::string darkestSecret;
 };
