@@ -19,6 +19,6 @@ private:
     std::string truncateString(const std::string &str) const;
     void displayContactTableHeader() const;
     void displayContactTableRow(int index) const;
+    void displayContactTableRow(int index) const;
 };
-
 #endif
