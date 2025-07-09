@@ -20,4 +20,6 @@ private:
     void displayContactTableHeader() const;
     void displayContactTableRow(int index) const;
 };
+
+changes
 #endif
