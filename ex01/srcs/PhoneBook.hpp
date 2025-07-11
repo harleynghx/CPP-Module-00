@@ -21,5 +21,4 @@ private:
     void displayContactTableRow(int index) const;
 };
 
-changes
 #endif
