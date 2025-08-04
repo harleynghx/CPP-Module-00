@@ -12,7 +12,7 @@ public:
     void searchContact() const;
     
 private:
-    Contact contacts[9];
+    Contact contacts[8];
     int contactCount;
     int oldestContactIndex;
 

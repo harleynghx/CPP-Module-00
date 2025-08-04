@@ -29,10 +29,7 @@ void PhoneBook::displayContactTableRow(int index) const {
 
 void PhoneBook::addContact() {
     Contact newContact;
-    contactCount = 0;
     std::string input;
-    std::cout << contactCount << std::endl;
-
 
     std::cout << "Enter first name: ";
     std::getline(std::cin, input);
@@ -57,15 +54,11 @@ void PhoneBook::addContact() {
 
     if (contactCount < 8) {
         contacts[contactCount] = newContact;
-        std::cout << "test" << std::endl;
         contactCount++;
-    std::cout << contactCount << std::endl;
-
     } else {
         contacts[oldestContactIndex] = newContact;
         oldestContactIndex = (oldestContactIndex + 1) % 8;
     }
-    std::cout << contactCount << std::endl;
 }
 
 void PhoneBook::searchContact() const {
