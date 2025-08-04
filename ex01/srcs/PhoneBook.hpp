@@ -10,9 +10,9 @@ public:
 
     void addContact();
     void searchContact() const;
-
+    
 private:
-    Contact contacts[0];
+    Contact contacts[9];
     int contactCount;
     int oldestContactIndex;
 
