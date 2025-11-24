@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-PhoneBook::PhoneBook() : contactCount(0), oldestContactIndex(0) {}
+PhoneBook::PhoneBook() : contactCount(0), oldestContactIndex(-1) {}
 PhoneBook::~PhoneBook() {}
 
 std::string PhoneBook::truncateString(const std::string &str) const {
@@ -27,7 +27,7 @@ void PhoneBook::addContact() {
 
     int targetIndex = (contactCount < 8) ? contactCount++ : oldestContactIndex;
     if (contactCount >= 8) {
-        oldestContactIndex = (oldestContactIndex ) % 8;
+        oldestContactIndex = (oldestContactIndex + 1) % 8;
     }
     Contact& targetContact = contacts[targetIndex];
     std::string input;
