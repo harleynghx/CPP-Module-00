@@ -35,7 +35,6 @@ void PhoneBook::addContact() {
     Contact& targetContact = contacts[targetIndex];
     std::string input;
 
-    // First Name
     do {
         std::cout << "Enter first name: ";
         std::getline(std::cin, input);
@@ -45,7 +44,6 @@ void PhoneBook::addContact() {
     } while (input.empty());
     targetContact.setFirstName(input);
 
-    // Last Name
     do {
         std::cout << "Enter last name: ";
         std::getline(std::cin, input);
@@ -55,7 +53,6 @@ void PhoneBook::addContact() {
     } while (input.empty());
     targetContact.setLastName(input);
 
-    // Nickname
     do {
         std::cout << "Enter nickname: ";
         std::getline(std::cin, input);
@@ -65,7 +62,6 @@ void PhoneBook::addContact() {
     } while (input.empty());
     targetContact.setNickname(input);
 
-    // Phone Number
     do {
         std::cout << "Enter phone number: ";
         std::getline(std::cin, input);
@@ -75,7 +71,6 @@ void PhoneBook::addContact() {
     } while (input.empty());
     targetContact.setPhoneNumber(input);
 
-    // Darkest Secret
     do {
         std::cout << "Enter darkest secret: ";
         std::getline(std::cin, input);
