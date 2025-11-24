@@ -8,6 +8,7 @@
 #include <limits>
 #include <cstdlib>  // for strtol
 #include <cctype>   // for isdigit
+#include <climits>  // for Int_max int_min
 
 class PhoneBook {
 public:
