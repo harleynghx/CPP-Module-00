@@ -12,8 +12,8 @@
 
 class PhoneBook {
 public:
-    PhoneBook(); // Constructor
-    ~PhoneBook(); // Destructor
+    PhoneBook();
+    ~PhoneBook();
 
     void addContact();
     void searchContact() const;

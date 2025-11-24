@@ -81,6 +81,7 @@ void PhoneBook::addContact() {
 }
 
 void PhoneBook::searchContact() const {
+    
     if (contactCount == 0) {
         std::cout << "Phonebook is empty!" << std::endl;
         return;
@@ -93,7 +94,7 @@ void PhoneBook::searchContact() const {
 
     int index;
     std::string input;
-    
+
     do {
         std::cout << "Enter index to display (0-" << contactCount - 1 << "): ";
         std::getline(std::cin, input);
@@ -104,10 +105,10 @@ void PhoneBook::searchContact() const {
         }
         
         char* endPtr;
-        const char* inputCStr = input.c_str();
-        long tempIndex = std::strtol(inputCStr, &endPtr, 10);
+        const char* inputCstr = input.c_str();
+        long tempIndex = std::strtol(inputCstr, &endPtr, 10);
         
-        if (endPtr == inputCStr) {
+        if (endPtr == inputCstr) {
             std::cout << "Invalid input! Please enter a valid number." << std::endl;
             continue;
         }
