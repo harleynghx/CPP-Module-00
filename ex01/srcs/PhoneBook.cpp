@@ -26,39 +26,35 @@ void PhoneBook::displayContactTableRow(int index) const {
               << std::setw(10) << truncateString(contacts[index].getLastName()) << "|"
               << std::setw(10) << truncateString(contacts[index].getNickname()) << std::endl;
 }
-
 void PhoneBook::addContact() {
-    Contact newContact;
+    int targetIndex = (contactCount < 8) ? contactCount++ : oldestContactIndex;
+    if (contactCount >= 8) {
+        oldestContactIndex = (oldestContactIndex + 1) % 8;
+    }
+
+    Contact& targetContact = contacts[targetIndex];
     std::string input;
 
+    // Rest remains the same...
     std::cout << "Enter first name: ";
     std::getline(std::cin, input);
-    newContact.setFirstName(input);
+    targetContact.setFirstName(input);
 
     std::cout << "Enter last name: ";
     std::getline(std::cin, input);
-    newContact.setLastName(input);
+    targetContact.setLastName(input);
 
     std::cout << "Enter nickname: ";
     std::getline(std::cin, input);
-    newContact.setNickname(input);
+    targetContact.setNickname(input);
 
     std::cout << "Enter phone number: ";
     std::getline(std::cin, input);
-    newContact.setPhoneNumber(input);
+    targetContact.setPhoneNumber(input);
 
     std::cout << "Enter darkest secret: ";
     std::getline(std::cin, input);
-    newContact.setDarkestSecret(input);
-    std::cout << contactCount << std::endl;
-
-    if (contactCount < 8) {
-        contacts[contactCount] = newContact;
-        contactCount++;
-    } else {
-        contacts[oldestContactIndex] = newContact;
-        oldestContactIndex = (oldestContactIndex + 1) % 8;
-    }
+    targetContact.setDarkestSecret(input);
 }
 
 void PhoneBook::searchContact() const {
