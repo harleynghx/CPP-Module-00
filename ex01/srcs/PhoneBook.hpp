@@ -2,6 +2,12 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <limits>
+#include <cstdlib>  // for strtol
+#include <cctype>   // for isdigit
 
 class PhoneBook {
 public:
