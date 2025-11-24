@@ -83,29 +83,62 @@ void PhoneBook::addContact() {
     std::cout << "Contact added successfully!" << std::endl;
 }
 
+#include <cstdlib>  // for strtol
+#include <cctype>   // for isdigit
+
 void PhoneBook::searchContact() const {
     if (contactCount == 0) {
         std::cout << "Phonebook is empty!" << std::endl;
         return;
     }
-    std::cout << contactCount << std::endl;
 
     displayContactTableHeader();
     for (int i = 0; i < contactCount; i++) {
         displayContactTableRow(i);
     }
 
-    std::cout << "Enter index to display: ";
     int index;
-    std::cin >> index;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string input;
+    
+    do {
+        std::cout << "Enter index to display (0-" << contactCount - 1 << "): ";
+        std::getline(std::cin, input);
+        
+        if (input.empty()) {
+            std::cout << "Empty input! Please enter a number." << std::endl;
+            continue;
+        }
+        
+        char* endPtr;
+        const char* inputCStr = input.c_str();
+        long tempIndex = std::strtol(inputCStr, &endPtr, 10);
+        
+        if (endPtr == inputCStr) {
+            std::cout << "Invalid input! Please enter a valid number." << std::endl;
+            continue;
+        }
+        
+        if (*endPtr != '\0') {
+            std::cout << "Invalid input! Please enter only a number (no extra characters)." << std::endl;
+            continue;
+        }
+        
+        if (tempIndex < INT_MIN || tempIndex > INT_MAX) {
+            std::cout << "Number out of range! Please enter a smaller number." << std::endl;
+            continue;
+        }
+        
+        index = static_cast<int>(tempIndex);
+        
+        if (index >= 0 && index < contactCount) {
+            break;
+        } else {
+            std::cout << "Invalid index! Please enter a number between 0 and " 
+                      << contactCount - 1 << "." << std::endl;
+        }
+    } while (true);
 
-    if (std::cin.fail() || index < 0 || index >= contactCount) {
-        std::cout << "Invalid index!" << std::endl;
-        std::cin.clear();
-        return;
-    }
-
+    std::cout << "\n--- Contact Details ---" << std::endl;
     std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
     std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
     std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
