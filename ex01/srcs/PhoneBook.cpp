@@ -24,11 +24,17 @@ void PhoneBook::displayContactTableRow(int index) const {
               << std::setw(10) << truncateString(contacts[index].getNickname()) << std::endl;
 }
 void PhoneBook::addContact() {
+        std::cout << "DEBUG: Before - contactCount=" << contactCount 
+              << ", oldestContactIndex=" << oldestContactIndex << std::endl;
     int targetIndex = (contactCount < 8) ? contactCount++ : oldestContactIndex;
+    std::cout << "DEBUG: After ternary - targetIndex=" << targetIndex 
+              << ", contactCount=" << contactCount << std::endl;
     if (contactCount >= 8) {
-        oldestContactIndex = (oldestContactIndex + 1) % 8;
+        std::cout << "DEBUG: Before oldest update - oldestContactIndex=" << oldestContactIndex << std::endl;
+        oldestContactIndex = (oldestContactIndex ) % 8;
+        std::cout << "DEBUG: After oldest update - oldestContactIndex=" << oldestContactIndex << std::endl;
     }
-
+    std::cout << "DEBUG: Final - Writing to index: " << targetIndex << std::endl;
     Contact& targetContact = contacts[targetIndex];
     std::string input;
 
