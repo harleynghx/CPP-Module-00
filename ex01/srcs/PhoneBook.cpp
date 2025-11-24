@@ -35,26 +35,57 @@ void PhoneBook::addContact() {
     Contact& targetContact = contacts[targetIndex];
     std::string input;
 
-    // Rest remains the same...
-    std::cout << "Enter first name: ";
-    std::getline(std::cin, input);
+    // First Name
+    do {
+        std::cout << "Enter first name: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Error: First name cannot be empty!" << std::endl;
+        }
+    } while (input.empty());
     targetContact.setFirstName(input);
 
-    std::cout << "Enter last name: ";
-    std::getline(std::cin, input);
+    // Last Name
+    do {
+        std::cout << "Enter last name: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Error: Last name cannot be empty!" << std::endl;
+        }
+    } while (input.empty());
     targetContact.setLastName(input);
 
-    std::cout << "Enter nickname: ";
-    std::getline(std::cin, input);
+    // Nickname
+    do {
+        std::cout << "Enter nickname: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Error: Nickname cannot be empty!" << std::endl;
+        }
+    } while (input.empty());
     targetContact.setNickname(input);
 
-    std::cout << "Enter phone number: ";
-    std::getline(std::cin, input);
+    // Phone Number
+    do {
+        std::cout << "Enter phone number: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Error: Phone number cannot be empty!" << std::endl;
+        }
+    } while (input.empty());
     targetContact.setPhoneNumber(input);
 
-    std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, input);
+    // Darkest Secret
+    do {
+        std::cout << "Enter darkest secret: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Error: Darkest secret cannot be empty!" << std::endl;
+        }
+    } while (input.empty());
     targetContact.setDarkestSecret(input);
+
+    std::cout << "Contact added successfully!" << std::endl;
 }
 
 void PhoneBook::searchContact() const {
